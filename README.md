@@ -11,10 +11,30 @@
 * Right click on project and select “build path”-> “configure build path” ->”libraries”->”add external jars”.
 * Go to "cloudera" -> "git" -> "SimpleWordCount" -> "lib" and select all jars and click ok.
 
-### Input file
+### Input file:
 * Open folder "file", you will see the input file named "WordCount.txt"
 
-### Output jar
+### Output jar:
 * Right click on project and select "Export".
 * Choose type "Java" -> "Jar file" and click "next".
 * Select the export destination as "cloudera" -> "git" -> "SimpleWordCount" -> "jar" and click "Finish".
+
+### Hadoop Commands:
+* hadoop fs -mkdir InputFolder                                      //to create a new input folder
+* hadoop fs -copyFromLocal <input file> InputFoler                  //to copy a file from local directory to hadoop environment
+* hadoop fs -ls InputFoler                                          //to see the files inside "InputFolder"
+* hadoop jar <jar file name> <class name> InputFoler OutputFolder   //running mapreduce operation
+* hadoop fs -ls OutputFolder                                        //to see the files inside "OutputFolder"
+* hadoop fs -cat OutputFolder/part-r-00000                          //to see the content inside "OutputFolder/part-r-00000" file
+* hadoop fs -rm -r OutputFolder                                     //to remove "OutputFolder" directory and all its files
+  
+  
+### General Information:
+
+* Cloudera Settings:      Use default remote desktop client
+* Machine:                  cqs-cs6304-xxx.ats.mst.edu
+* User:                     cloudera
+* Default Password:         stu-pass
+* Change Password Command:  sudo passwd cloudera
+
+* "Firefox already running" error solve by command:     killall -SIGTERM firefox
