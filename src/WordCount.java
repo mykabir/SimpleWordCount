@@ -33,6 +33,7 @@ public class WordCount {
        extends Reducer<Text,IntWritable,Text,IntWritable> {
 	  
     private IntWritable result = new IntWritable();
+//    private Map<Text, IntWritable> countMap = new HashMap<Text, IntWritable>();
 
     public void reduce(Text key, Iterable<IntWritable> values, 
                        Context context
@@ -43,7 +44,21 @@ public class WordCount {
       }
       result.set(sum);
       context.write(key, result);
+//      countMap.put(new Text(key), new IntWritable(sum));
     }
+	  
+//    public void cleanup(Context context) throws IOException, InterruptedException {
+//    	List<Entry<Text, IntWritable>> countList = new ArrayList<Entry<Text, IntWritable>>(countMap.entrySet());
+//    	Collections.sort( countList, new Comparator<Entry<Text, IntWritable>>(){
+//            public int compare( Entry<Text, IntWritable> o1, Entry<Text, IntWritable> o2 ) {
+//                return (o2.getValue()).compareTo( o1.getValue() );
+//            }
+//        } );
+//    	for(Entry<Text, IntWritable> entry: countList) {    	
+//	    	context.write(entry.getKey(), entry.getValue());
+//	    }	
+//    }
+//  }
   }
 
   public static void main(String[] args) throws Exception {
