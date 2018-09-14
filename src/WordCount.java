@@ -66,7 +66,6 @@ public class WordCount {
     Job job = new Job(conf, "word count");
     job.setJarByClass(WordCount.class);
     job.setMapperClass(MyMapper.class);
-    job.setCombinerClass(MyReducer.class);
     job.setReducerClass(MyReducer.class);
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(IntWritable.class);
