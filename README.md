@@ -38,3 +38,7 @@
 * Change Password Command:  sudo passwd cloudera
 
 * "Firefox already running" error solve by command:     killall -SIGTERM firefox
+
+* "ConnectionRefused" error solve by following haddop commands:
+* sudo /sbin/service hadoop-hdfs-namenode restart
+* sudo /sbin/service hadoop-hdfs-datanode restart
