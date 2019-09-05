@@ -25,14 +25,17 @@ public class WordCount {
     
     private final static IntWritable one = new IntWritable(1);
     private Text word = new Text();
+    //private int lineCount = 1;
       
     public void map(Object key, Text value, Context context
                     ) throws IOException, InterruptedException {
       StringTokenizer itr = new StringTokenizer(value.toString());
       while (itr.hasMoreTokens()) {
         word.set(itr.nextToken());
+        //word.set(itr.nextToken()+"\t"+lineCount);
         context.write(word, one);
       }
+      //lineCount++;
     }
   }
   
@@ -40,7 +43,7 @@ public class WordCount {
        extends Reducer<Text,IntWritable,Text,IntWritable> {
 	  
     private IntWritable result = new IntWritable();
-    private Map<Text, IntWritable> countMap = new HashMap<Text, IntWritable>();
+//    private Map<Text, IntWritable> countMap = new HashMap<Text, IntWritable>();
 
     public void reduce(Text key, Iterable<IntWritable> values, 
                        Context context
