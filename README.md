@@ -39,6 +39,10 @@
 
 * "Firefox already running" error solve by command:     killall -SIGTERM firefox
 
+* "Eclipse resource is out of sync" error solve by:
+* Windows -> Preferences -> General -> Workspace
+* Check "Refresh using native tool or polling"
+
 * "ConnectionRefused" error solve by following haddop commands:
 * sudo /sbin/service hadoop-hdfs-namenode restart
 * sudo /sbin/service hadoop-hdfs-datanode restart
