@@ -1,4 +1,11 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.StringTokenizer;
 
 import org.apache.hadoop.conf.Configuration;
@@ -33,7 +40,7 @@ public class WordCount {
        extends Reducer<Text,IntWritable,Text,IntWritable> {
 	  
     private IntWritable result = new IntWritable();
-//    private Map<Text, IntWritable> countMap = new HashMap<Text, IntWritable>();
+    private Map<Text, IntWritable> countMap = new HashMap<Text, IntWritable>();
 
     public void reduce(Text key, Iterable<IntWritable> values, 
                        Context context
